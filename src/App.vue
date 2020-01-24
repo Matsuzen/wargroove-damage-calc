@@ -270,6 +270,8 @@ export default {
 
     changeVersion(version) {
       this.version = version;
+
+      this.grooves.Ryota.setHp = version === 2 ? 50 : 45;
     }
   },
 
