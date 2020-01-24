@@ -1,0 +1,269 @@
+.author {
+	margin-top: 12px;
+	text-align: center;
+}
+.author a {
+	color: black
+}
+#app {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+body {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	font-family: 'Indie Flower', cursive;
+	height: 95vh;
+	justify-content: center;
+}
+.bold {
+	font-weight: 900;
+}
+.calculator {
+	background: rgba(255, 255, 255, 0.5);
+	display: flex;
+	flex-direction: row;
+	padding: 12px;
+	position: relative;
+	width: 100%;
+}
+.unit-panel {
+	display: inline-flex;
+	flex-direction: column;
+	position: relative;
+	width: 50%;
+}
+.panel-header {
+	align-items: center;
+	background: rgba(255, 255, 255, 0.6);
+	display: flex;
+	height: 60px;
+	justify-content: center;
+	margin-bottom: 12px;
+	padding: 0 8px;
+	position: relative;
+}
+.panel-header h2 {
+	margin-right: 12px;
+	text-decoration: underline;
+}
+.unit-panel ul {
+	list-style: none;
+	padding: 0;
+}
+.panel ul li {
+	cursor: pointer;
+}
+.panel ul li:hover {
+	background: #F69B9B;
+}
+.panel-crit {
+	align-items: center;
+	cursor: pointer;
+	display: flex;
+	margin-left: 4px;
+	position: relative;
+}
+.panel-crit img:hover {
+	background: rgba(255, 255, 255, 0.6);
+	cursor: pointer;
+	transform: scale(1.1);
+}
+.panel-crit input {
+	position: absolute;
+	visibility: hidden;
+}
+.crit-modifier {
+	font-size: 18px;
+	position: absolute;
+	left: 110%;
+}
+.current-faction {
+	height: 44px;
+}
+.current-terrain img {
+	width: 45px;
+}
+.current-unit {
+	height: 64px;
+	margin-bottom: 8px;
+	width: 64px;
+}
+.panel-damage {
+	background: rgba(255, 255, 255, 0.6);
+	display: flex;
+	flex-direction: column;
+}
+.damage-display {
+	font-size: 24px;
+	font-weight: 900;
+	text-align: center;
+}
+.defender-panel .unit-menu {
+	left: auto;
+	right: 0;
+}
+.defender-panel .terrain-menu {
+	left: auto;
+	right: 0;
+}
+div[class^="current"] {
+	cursor: pointer;
+}
+div[class^="current"]:hover {
+	transform: scale(1.1);
+}
+div[class$="menu"] {
+	background: rgba(255, 255, 255, 0.7);
+	border: 1px solid #DDDDDD;
+	cursor: pointer;
+	z-index: 10;
+}
+div[class$="menu"] img:hover {
+	transform: scale(1.1);
+}
+.faction-menu {
+	height: 88px;
+	position: absolute;
+	right: 0;
+	top: 99%;
+	width: 88px;
+}
+.grayscale {
+	filter: grayscale(100);
+}
+.groove-cos {
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	height: 90%;
+	left: 2%;
+	position: absolute;
+}
+.groove-cos img {
+	border-radius: 50%;
+	cursor: pointer;
+	margin-bottom: 1px;
+	z-index: 20;
+}
+.groove-tip {
+	background: rgba(255, 255, 255, 0.6);
+	padding: 2px;
+	position: absolute;
+	left: 0;
+	top: 85%;
+	z-index: 20;
+}
+.panel-hp {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+.panel-hp img {
+	margin-right: 8px;
+}
+input[id$="-hp"] {
+	width: 40px;
+}
+.main-panel {
+	background: rgba(255, 255, 255, 0.5);
+	display: flex;
+}
+.panel-others {
+	display: flex;
+	justify-content: center;
+}
+.selected {
+	background: rgba(248, 50, 50, 0.4);
+	transform: scale(1.1);
+}
+.swap {
+	align-items: center;
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 50%;
+	cursor: pointer;
+	display: flex;
+	height: 32px;
+	justify-content: center;
+	position: relative;
+	top: 16px;
+	width: 32px;
+	z-index: 50;
+}
+.swap:hover {
+	transform: scale(1.1);
+}
+.selected-unit {
+	background: #F65B5B;
+}
+.panel-terrain img {
+	width: 45px;
+}
+.terrain-menu {
+	position: absolute;
+	width: 135px;
+}
+.panel-unit {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	margin-right: 20px;
+	position: relative;
+}
+.panel-unit-terrain {
+	border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+	display: flex;
+	justify-content: center;
+	margin: 4px 0;
+	padding-bottom: 8px;
+	position: relative;
+}
+.unit-menu {
+	left: 0;
+	position: absolute;
+	top: 99%;
+	max-width: 384px;
+	width: 384px;
+}
+.versions {
+	align-self: center;
+	display: flex;
+}
+.versions div {
+	background: rgba(255, 255, 255, 0.6);
+	cursor: pointer;
+	font-size: 20px;
+	margin: 0 20px;
+	padding: 8px 12px;
+}
+@media screen and (max-width: 600px) {
+	.calculator {
+		max-width: 100%;
+	}
+	.panel {
+		width: 50%;
+	}
+	.panel-header {
+		font-size: 12px;
+	}
+	.crit-modifier {
+		font-size: 14px;
+	}
+	.damage-display {
+		font-size: 18px;
+	}
+	.panel-unit {
+		justify-content: flex-start;
+	}
+	
+	.panel-unit{
+		margin-right: 2px;
+		position: "none";
+	}
+	.unit-menu {
+		width: 256px;
+	}
+}
