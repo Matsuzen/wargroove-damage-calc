@@ -200,7 +200,7 @@ export default {
     //attLuckDamage is the luck damage the attacker had during his attack (min, max)
     calcCounter(attLuckDamage, luckDamage) {
       //Set the remaining hp of the defender after the attack and run calcAttack
-      const { hp: defHp } = this.defender;
+      const { hp: defHp, unit: defUnit } = this.defender;
 
       const { max, min, avg } = this.attDamage;
 
@@ -209,7 +209,9 @@ export default {
         max: defHp - min,
         avg: defHp - avg
       }
-      const remainingHp = remainingHps[attLuckDamage];
+      let remainingHp = remainingHps[attLuckDamage];
+
+      if(defUnit === "hq" || defUnit === "building") remainingHp = 100;
 
       let counterDmg = this.calcAttack(this.defender, this.attacker, luckDamage, remainingHp);
 
