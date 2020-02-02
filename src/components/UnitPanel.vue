@@ -41,7 +41,7 @@
               :src="unitName !== 'commander' ? 
                 (require(`@/assets/images/${posObject.faction}/${unitName}.png`)) : 
                 (require(`@/assets/images/${posObject.faction}/commander.png`))"
-              :class="`${unitName}, ${posLower}`"
+              :class="`${unitName} ${posLower}`"
               @click="selectEl(unitName, posLower, 'unit')"
               :alt="`${unitName}'s sprite'`">
               
@@ -137,7 +137,7 @@
             <img 
               src="@/assets/images/icons/crystal.png"
               :class="{ selected: posObject.emericCrystal}"
-              class="clickable crystal"
+              class="clickable crystal-toggle"
               alt="Emeric Crystal">
           </label>
           <input 

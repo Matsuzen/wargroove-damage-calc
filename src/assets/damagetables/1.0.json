@@ -23,7 +23,8 @@
       "amphibian":55,
       "commander":10,
       "building":35,
-      "hq":17.5
+      "hq":17.5,
+      "crystal":100
     },
     "crit":1.5,
     "canCounter":true
@@ -52,7 +53,8 @@
       "amphibian":75,
       "commander":15,
       "building":20,
-      "hq":10
+      "hq":10,
+      "crystal":100
     },
     "crit":1.5,
     "canCounter":true
@@ -81,7 +83,8 @@
       "amphibian":75,
       "commander":15,
       "building":50,
-      "hq":25
+      "hq":25,
+      "crystal":100
     },
     "crit":1.5,
     "canCounter":true
@@ -110,7 +113,8 @@
       "amphibian":70,
       "commander":5,
       "building":20,
-      "hq":10
+      "hq":10,
+      "crystal":100
     },
     "crit":1.35,
     "canCounter":true
@@ -139,7 +143,8 @@
       "amphibian":55,
       "commander":20,
       "building":35,
-      "hq":17.5
+      "hq":17.5,
+      "crystal":100
     },
     "crit":1.5,
     "canCounter":true
@@ -168,7 +173,8 @@
       "amphibian":85,
       "commander":25,
       "building":65,
-      "hq":32.5
+      "hq":32.5,
+      "crystal":100
     },
     "crit":1.5,
     "canCounter":true
@@ -197,7 +203,8 @@
       "amphibian":40,
       "commander":10,
       "building":30,
-      "hq":15
+      "hq":15,
+      "crystal":100
     },
     "crit":1.5,
     "canCounter":false
@@ -226,7 +233,8 @@
       "amphibian":100,
       "commander":25,
       "building":85,
-      "hq":42.5
+      "hq":42.5,
+      "crystal":100
     },
     "crit":1.5,
     "canCounter":false
@@ -255,7 +263,8 @@
       "amphibian":130,
       "commander":35,
       "building":85,
-      "hq":42.5
+      "hq":42.5,
+      "crystal":100
     },
     "crit":2.5,
     "canCounter":true
@@ -284,7 +293,8 @@
       "amphibian":65,
       "commander":15,
       "building":45,
-      "hq":22.5
+      "hq":22.5,
+      "crystal":100
     },
     "crit":1.25,
     "canCounter":true
@@ -313,7 +323,8 @@
       "amphibian":null,
       "commander":null,
       "building":null,
-      "hq":null
+      "hq":null,
+      "crystal":null
     },
     "crit":2,
     "canCounter":true
@@ -342,7 +353,8 @@
       "amphibian":120,
       "commander":35,
       "building":65,
-      "hq":32.5
+      "hq":32.5,
+      "crystal":100
     },
     "crit":2,
     "canCounter":true
@@ -371,7 +383,8 @@
       "amphibian":110,
       "commander":null,
       "building":null,
-      "hq":null
+      "hq":null,
+      "crystal":null
     },
     "crit":1.5,
     "canCounter":true
@@ -400,7 +413,8 @@
       "amphibian":30,
       "commander":null,
       "building":null,
-      "hq":null
+      "hq":null,
+      "crystal":null
     },
     "crit":1.5,
     "canCounter":false
@@ -429,7 +443,8 @@
       "amphibian":75,
       "commander":25,
       "building":75,
-      "hq":37.5
+      "hq":37.5,
+      "crystal":100
     },
     "crit":1.5,
     "canCounter":true
@@ -458,7 +473,8 @@
       "amphibian":25,
       "commander":10,
       "building":20,
-      "hq":10
+      "hq":10,
+      "crystal":100
     },
     "crit":2,
     "canCounter":false
@@ -487,7 +503,8 @@
       "amphibian":95,
       "commander":40,
       "building":70,
-      "hq":35
+      "hq":35,
+      "crystal":100
     },
     "crit":1,
     "canCounter":true
@@ -516,7 +533,8 @@
       "amphibian":30,
       "commander":5,
       "building":null,
-      "hq":null
+      "hq":null,
+      "crystal":null
     },
     "crit":1,
     "canCounter":true
@@ -545,7 +563,8 @@
       "amphibian":30,
       "commander":5,
       "building":null,
-      "hq":null
+      "hq":null,
+      "crystal":null
     },
     "crit":1,
     "canCounter":true
@@ -574,7 +593,8 @@
       "amphibian":95,
       "commander":40,
       "building":70,
-      "hq":35
+      "hq":35,
+      "crystal":100
     },
     "crit":1,
     "canCounter":true

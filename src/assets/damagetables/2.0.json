@@ -25,7 +25,8 @@
       "commander":10,
       "thief": 95,
       "building":35,
-      "hq":17.5
+      "hq":17.5,
+      "crystal":100
     },
     "crit":1.5,
     "canCounter":true
@@ -56,7 +57,8 @@
       "commander":15,
       "thief": 85,
       "building":20,
-      "hq":10
+      "hq":10,
+      "crystal":100
     },
     "crit":1.5,
     "canCounter":true
@@ -87,7 +89,8 @@
       "commander":15,
       "thief": 75,
       "building":50,
-      "hq":25
+      "hq":25,
+      "crystal":100
     },
     "crit":1.5,
     "canCounter":true
@@ -118,7 +121,8 @@
       "commander":5,
       "thief": 70,
       "building":20,
-      "hq":10
+      "hq":10,
+      "crystal":100
     },
     "crit":1.35,
     "canCounter":true
@@ -149,7 +153,8 @@
       "commander":20,
       "thief": 85,
       "building":35,
-      "hq":17.5
+      "hq":17.5,
+      "crystal":100
     },
     "crit":1.5,
     "canCounter":true
@@ -180,7 +185,8 @@
       "commander":25,
       "thief": 90,
       "building":65,
-      "hq":32.5
+      "hq":32.5,
+      "crystal":100
     },
     "crit":1.5,
     "canCounter":true
@@ -211,7 +217,8 @@
       "commander":10,
       "thief": 40,
       "building":30,
-      "hq":15
+      "hq":15,
+      "crystal":100
     },
     "crit":1.5,
     "canCounter":false
@@ -242,7 +249,8 @@
       "commander":25,
       "thief": 100,
       "building":85,
-      "hq":42.5
+      "hq":42.5,
+      "crystal":100
     },
     "crit":1.5,
     "canCounter":false
@@ -273,7 +281,8 @@
       "commander":35,
       "thief": 130,
       "building":85,
-      "hq":42.5
+      "hq":42.5,
+      "crystal":100
     },
     "crit":2.5,
     "canCounter":true
@@ -304,7 +313,8 @@
       "commander":15,
       "thief": 65,
       "building":50,
-      "hq":22.5
+      "hq":22.5,
+      "crystal":100
     },
     "crit":1.25,
     "canCounter":true
@@ -335,7 +345,8 @@
       "commander":null,
       "thief": null,
       "building":null,
-      "hq":null
+      "hq":null,
+      "crystal":null
     },
     "crit":2,
     "canCounter":true
@@ -366,7 +377,8 @@
       "commander":35,
       "thief": 120,
       "building":65,
-      "hq":32.5
+      "hq":32.5,
+      "crystal":null
     },
     "crit":2,
     "canCounter":true
@@ -397,7 +409,8 @@
       "commander":null,
       "thief": null,
       "building":null,
-      "hq":null
+      "hq":null,
+      "crystal":null
     },
     "crit":1.5,
     "canCounter":true
@@ -428,7 +441,8 @@
       "commander":null,
       "thief": null,
       "building":null,
-      "hq":null
+      "hq":null,
+      "crystal":null
     },
     "crit":1.5,
     "canCounter":false
@@ -459,7 +473,8 @@
       "commander":25,
       "thief": 100,
       "building":75,
-      "hq":37.5
+      "hq":37.5,
+      "crystal":100
     },
     "crit":1.5,
     "canCounter":true
@@ -490,7 +505,8 @@
       "commander":10,
       "thief": 35,
       "building":15,
-      "hq":10
+      "hq":10,
+      "crystal":100
     },
     "crit":2,
     "canCounter":false
@@ -521,7 +537,8 @@
       "commander":5,
       "thief": 95,
       "building":5,
-      "hq":5
+      "hq":5,
+      "crystal":100
     },
     "crit":1.5,
     "canCounter":false
@@ -552,7 +569,8 @@
       "commander":40,
       "thief":null,
       "building":70,
-      "hq":35
+      "hq":35,
+      "crystal":100
     },
     "crit":1,
     "canCounter":true
@@ -583,7 +601,8 @@
       "commander":5,
       "thief": null,
       "building":null,
-      "hq":null
+      "hq":null,
+      "crystal":null
     },
     "crit":1,
     "canCounter":true
@@ -614,7 +633,8 @@
       "commander":5,
       "thief": null,
       "building":null,
-      "hq":null
+      "hq":null,
+      "crystal":null
     },
     "crit":1,
     "canCounter":true
@@ -645,7 +665,8 @@
       "commander":40,
       "thief":null,
       "building":70,
-      "hq":35
+      "hq":35,
+      "crystal":100
     },
     "crit":1,
     "canCounter":true

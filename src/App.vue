@@ -179,13 +179,15 @@ export default {
     calcAttack(attacker, defender, luckDamage, remainingHp) {
       if(remainingHp === 0) return 0;
       let { unit: attUnit, groove: attGroove, crit: attCrit, hp: attHp } = attacker;
-      let { unit: defUnit, hp: defHp, defense: defDefense } = defender;
+      let { unit: defUnit, hp: defHp, defense: defDefense, emericCrystal } = defender;
 
       //Game works based on average damage so add 5
       const baseDamage = (!attGroove ? this.units[attUnit].damage[defUnit] : this.units.grooves.damage[defUnit]) + 5;
 
       //Set defense to 0 for air units and buildings
-      let terrainDef = this.noDefUnits[defUnit] ? 0 : defDefense;
+      //Emeric's crystal affect air units
+      let terrainDef = this.noDefUnits[defUnit] ? 
+      (emericCrystal ? 3 : 0) : defDefense;
       
       //Set def HP to 100 for negative defense
       if(terrainDef <= 0) {

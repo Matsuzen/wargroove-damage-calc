@@ -82,8 +82,13 @@ body {
 	left: 110%;
 }
 .crystal {
+	bottom: 10px;
+	left: 17px;
+	position: relative;
+}
+.crystal-toggle {
 	padding: 0 4px;
-	width: 16px;
+	width: 17px;
 }
 .current-faction {
 	height: 44px;
@@ -95,7 +100,10 @@ body {
 	width: 45px;
 }
 .current-unit {
+	align-items: center;
+	display: flex;
 	height: 64px;
+	justify-content: center;
 	margin-bottom: 8px;
 	width: 64px;
 }
@@ -181,6 +189,7 @@ div[class$="menu"] img:hover {
 .panel-hp, .panel-dash, .panel-crystal {
 	align-items: center;
 	display: flex;
+	height: 100%;
 	justify-content: center;
 	margin: 0 4px;
 }
@@ -195,6 +204,7 @@ input[id$="-hp"], .panel-dash input {
 	display: flex;
 }
 .panel-others {
+	align-items: center;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
