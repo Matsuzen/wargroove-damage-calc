@@ -67,22 +67,29 @@ body {
 	margin-left: 4px;
 	position: relative;
 }
-.panel-crit img:hover {
+.hidden-input {
+	position: absolute;
+	visibility: hidden;
+}
+.clickable:hover {
 	background: rgba(255, 255, 255, 0.6);
 	cursor: pointer;
 	transform: scale(1.1);
-}
-.panel-crit input {
-	position: absolute;
-	visibility: hidden;
 }
 .crit-modifier {
 	font-size: 18px;
 	position: absolute;
 	left: 110%;
 }
+.crystal {
+	padding: 0 4px;
+	width: 16px;
+}
 .current-faction {
 	height: 44px;
+}
+.current-groove {
+	width: 40px;
 }
 .current-terrain img {
 	width: 45px;
@@ -136,18 +143,24 @@ div[class$="menu"] img:hover {
 	filter: grayscale(100);
 }
 .groove-cos {
-	bottom: 0;
 	display: flex;
 	flex-direction: column;
 	height: 90%;
-	left: 2%;
+	justify-content: flex-end;
 	position: absolute;
+	right: 80%;
 }
 .groove-cos img {
 	border-radius: 50%;
 	cursor: pointer;
 	margin-bottom: 1px;
 	z-index: 20;
+}
+.groove-menu {
+	left: 0;
+	position: absolute;
+	top: 100%;
+	white-space: nowrap;
 }
 .groove-tip {
 	background: rgba(255, 255, 255, 0.6);
@@ -157,15 +170,24 @@ div[class$="menu"] img:hover {
 	top: 85%;
 	z-index: 20;
 }
-.panel-hp {
+/* input {
+	background: rgba(255, 255, 255, 0.6);
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	text-align: center;
+} */
+.panel-hp, .panel-dash, .panel-crystal {
 	align-items: center;
 	display: flex;
 	justify-content: center;
+	margin: 0 4px;
 }
-.panel-hp img {
-	margin-right: 8px;
+.panel-hp img, .panel-dash img {
+	margin-right: 4px;
 }
-input[id$="-hp"] {
+input[id$="-hp"], .panel-dash input {
 	width: 40px;
 }
 .main-panel {
@@ -175,6 +197,10 @@ input[id$="-hp"] {
 .panel-others {
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
+}
+.hover-scale:hover {
+	transform: scale(1.1);
 }
 .selected {
 	background: rgba(248, 50, 50, 0.4);

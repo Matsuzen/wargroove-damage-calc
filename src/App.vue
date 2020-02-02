@@ -30,9 +30,10 @@
           :damage="attDamage"
           @selectEl="selectEl"
           @toggleMenu="toggleMenu"
-          @toggleCrit="toggleCrit"
+          @toggleAttribute="toggleAttribute"
           @changeGroove="changeGroove"
           @changeHp="changeHp"
+          @changeDashes="changeDashes"
           />
 
         <UnitPanel 
@@ -46,7 +47,7 @@
           :damage="counterDamage"
           @selectEl="selectEl"
           @toggleMenu="toggleMenu"
-          @toggleCrit="toggleCrit"
+          @toggleAttribute="toggleAttribute"
           @changeHp="changeHp"
           />
       </div>
@@ -71,6 +72,9 @@ export default {
       attacker: {
         crit: 1,
         critCondition: false,
+        dashes: 1, //Ryota's dashes: 5% extra damage per dash
+        defense: 0,
+        emericCrystal: false,
         faction: "cherrystone",
         groove: "",
         hp: 100,
@@ -86,6 +90,8 @@ export default {
       defender: {
         crit: 1,
         critCondition: false,
+        defense: 0,
+        emericCrystal: false,
         faction: "fellheim",
         groove: "",
         hp: 100,
@@ -97,11 +103,15 @@ export default {
       grooves: {
         Ryota: {
           name: "Ryota",
-          setHp: 45
+          setHp: 50
         },
         Ragna: {
           name: "Ragna",
           setHp: 65
+        },
+        Koji: {
+          name: "Koji",
+          setHp: 50
         }
       },
       lastMenu: {
@@ -134,6 +144,7 @@ export default {
       menuToggles: {
         attacker: {
           faction: false,
+          groove: false,
           unit: false,
           terrain: false
         },
@@ -152,6 +163,8 @@ export default {
       this[position][menu] = value;
       this.menuToggles[position][menu] = false;
       this.lastMenu.menu = "";
+
+      if(value === "commander" && position === "attacker") this.attacker.groove = "";
     },
 
     adjustHP(position) {
@@ -166,13 +179,13 @@ export default {
     calcAttack(attacker, defender, luckDamage, remainingHp) {
       if(remainingHp === 0) return 0;
       let { unit: attUnit, groove: attGroove, crit: attCrit, hp: attHp } = attacker;
-      let { unit: defUnit, terrain: defTerrain, hp: defHp } = defender;
+      let { unit: defUnit, hp: defHp, defense: defDefense } = defender;
 
       //Game works based on average damage so add 5
       const baseDamage = (!attGroove ? this.units[attUnit].damage[defUnit] : this.units.grooves.damage[defUnit]) + 5;
 
       //Set defense to 0 for air units and buildings
-      let terrainDef = this.noDefUnits[defUnit] ? 0 : this.terrainValues[defTerrain];
+      let terrainDef = this.noDefUnits[defUnit] ? 0 : defDefense;
       
       //Set def HP to 100 for negative defense
       if(terrainDef <= 0) {
@@ -182,6 +195,11 @@ export default {
       //Set proper hp for grooves
       if(attGroove) {
         attHp = this.grooves[attGroove].setHp;
+      }
+
+      //Add 5hp per dash after the first one
+      if(attGroove === "Ryota" && this.version === 2) {
+        attHp += (this.attacker.dashes - 1) * 5
       }
 
       //Set remaining hp for counter attacks
@@ -211,6 +229,7 @@ export default {
       }
       let remainingHp = remainingHps[attLuckDamage];
 
+      //Buildings deal full damage regardless of HP, set hp to 100
       if(defUnit === "hq" || defUnit === "building") remainingHp = 100;
 
       let counterDmg = this.calcAttack(this.defender, this.attacker, luckDamage, remainingHp);
@@ -257,8 +276,8 @@ export default {
         this[position].crit = 1;
       }
     },
-    toggleCrit(position) {
-      this[position].critCondition = !this[position].critCondition;
+    toggleAttribute({ position, attribute }) {
+      this[position][attribute] = !this[position][attribute];
     },
 
     changeGroove({ position, co }) {
@@ -267,13 +286,27 @@ export default {
     },
 
     changeHp({ position, newHp }) {
+      if(newHp > 100) newHp = 100;
+      if(newHp < 0) newHp = 0;
       this[position].hp = newHp;
     },
-
+    changeDashes(dashes) {
+      if(dashes < 1) dashes = 1;
+      this.attacker.dashes = dashes;
+    },
     changeVersion(version) {
       this.version = version;
 
       this.grooves.Ryota.setHp = version === 2 ? 50 : 45;
+    },
+    updateDefense(position) {
+      const { emericCrystal, terrain } = this[position];
+      const defenseAdd = emericCrystal ? 3 : 0;
+      let newDefense = this.terrainValues[terrain] + defenseAdd;
+
+      if(newDefense > 4) newDefense = 4;
+      
+      this[position].defense = newDefense;
     }
   },
 
@@ -348,6 +381,12 @@ export default {
       this.updateCrit("attacker");
       if(this.attacker.unit !== "commander") this.attacker.groove = "";
     },
+    "attacker.terrain"() {
+      this.updateDefense("attacker");
+    },
+    "attacker.emericCrystal"() {
+      this.updateDefense("attacker");
+    },
     /* "attacker.hp": function() {
       this.adjustHP("attacker");
     }, */
@@ -356,6 +395,12 @@ export default {
     },
     "defender.unit": function() {
       this.updateCrit("defender");
+    },
+    "defender.terrain"() {
+      this.updateDefense("defender");
+    },
+    "defender.emericCrystal": function() {
+      this.updateDefense("defender");
     },
     version() {
       //Store only units that can attack in an array

@@ -26,20 +26,6 @@
         </div>
 
         <div class="panel-unit-terrain">
-          <div
-            v-if="position === 'Attacker'"
-            v-show="posObject.unit === 'commander'"
-            class="groove-cos">
-            <img
-              v-for="groove in grooves"
-              :key="groove.name"
-              :src="require(`@/assets/images/icons/${groove.name.toLowerCase()}.png`)"
-              :class="{ grayscale: posObject.groove !== groove.name }"
-              @click="$emit('changeGroove', { position: posLower, co: groove.name })"
-              @mouseover="displayGrooveTip(groove.name)"
-              @mouseleave="showGrooveTip = false"
-              :alt="`${groove.name}'s groove'`">
-          </div>
           <div 
             v-show="showGrooveTip"
             class="groove-tip bold">
@@ -58,6 +44,7 @@
               :class="`${unitName}, ${posLower}`"
               @click="selectEl(unitName, posLower, 'unit')"
               :alt="`${unitName}'s sprite'`">
+              
           </div>
 
           <div class="panel-unit">
@@ -69,6 +56,29 @@
                 :alt="`${posObject.unit}'s sprite'`"
                 :class="{ grayscale: posObject.groove }">
             </div>
+
+            <div
+              v-if="position === 'Attacker' && posObject.unit === 'commander'"
+              class="groove-cos">
+              <img
+                :src="require(`@/assets/images/grooves/${posObject.groove.toLowerCase() || 'ryota'}.png`)"
+                @click="toggleMenu(posLower, 'groove')"
+                :alt="`${posLower.groove}'s groove'`"
+                class="current-groove hover-scale"
+                :class="{ grayscale: !posObject.groove }">
+
+              <div 
+                class="groove-menu"
+                v-show="menuToggles[posLower].groove">
+                <img
+                  v-for="groove in grooves"
+                  :key="groove.name"
+                  :src="require(`@/assets/images/grooves/${groove.name.toLowerCase()}.png`)"
+                  @click="selectEl(groove.name, posLower, 'groove')"
+                  :alt="`${groove.name}'s groove'`">
+              </div>
+            </div>
+
           </div>
 
           <div class="panel-terrain">
@@ -93,9 +103,11 @@
           </div>
         </div>
       </div>
-      <!-- HP and crit -->
+      <!-- HP, crit and blade dash count, Emeric crystal -->
       <div class="panel-others">
-        <div class="panel-hp">
+        <div 
+          class="panel-hp"
+          v-if="posObject.groove !== 'Ryota'">
           <label :for="`${posLower}-hp`">
             <img src="@/assets/images/icons/heart.png" alt="Unit's HP">
           </label>
@@ -107,17 +119,47 @@
             max=100>
         </div>
 
+        <div
+          class="panel-dash"
+          v-else-if="position === 'Attacker' && posObject.groove === 'Ryota'">
+          <label :for="`${posLower}-dash`">
+            <img src="" alt="Dash">
+          </label>
+          <input 
+            type="number"
+            :id="`${posLower}-dash`"
+            v-model="changeDashes"
+            min=1>
+        </div>
+
+        <div class="panel-crystal">
+          <label :for="`${posLower}-crystal`">
+            <img 
+              src="@/assets/images/icons/crystal.png"
+              :class="{ selected: posObject.emericCrystal}"
+              class="clickable crystal"
+              alt="Emeric Crystal">
+          </label>
+          <input 
+            type="checkbox"
+            :id="`${posLower}-crystal`"
+            class="hidden-input"
+            @click="$emit('toggleAttribute', { position: posLower, attribute: 'emericCrystal' })">
+        </div>
+
         <div class="panel-crit">
           <label :for="`${posLower}-crit`">
             <img 
               src="@/assets/images/icons/critical.png"
-              :class="{ selected: posObject.critCondition } "
+              :class="{ selected: posObject.critCondition }"
+              class="clickable"
               alt="Critical toggle">
           </label>
           <input 
             type="checkbox"
             :id="`${posLower}-crit`"
-            @click="$emit('toggleCrit', posLower)">
+            class="hidden-input"
+            @click="$emit('toggleAttribute', { position: posLower, attribute: 'critCondition' })">
           <span
             class="crit-modifier"
             :class="{ bold: posObject.critCondition }">
@@ -157,6 +199,14 @@ export default {
       set(newHp) {
         this.$emit("changeHp", { position: this.posLower, newHp })
       }
+    },
+    changeDashes: {
+      get() {
+        return this.posObject.dashes;
+      },
+      set(newDashes) {
+        this.$emit("changeDashes", newDashes)
+      }
     }
   },
   methods: {
@@ -169,7 +219,7 @@ export default {
     displayGrooveTip(groove) {
       this.tipGroove = groove;
       this.showGrooveTip = true;
-    },
+    }
   }
 }
 </script>
